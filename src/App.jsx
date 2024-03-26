@@ -4,7 +4,7 @@ import {
   RouterProvider,
   useRouteError
 } from "react-router-dom";
-import Home from './components/Home'
+import Home from './pages/Home'
 import About from './components/About'
 
 const App = () => {
@@ -22,15 +22,13 @@ const App = () => {
       element: <Home />,
       children: [
         {
+          path: 'About',
+          element: <About />
         }
       ],
       
       errorElement: <ErrorBoundary />
     },
-    {
-      path: 'About',
-      element: <About />
-    }
   ]);
 
 
