@@ -22,9 +22,17 @@ const App = () => {
       element: <Home />,
       children: [
         {
-          path: 'About',
+          path: 'about',
           element: <About />
-        }
+        },
+        {
+          path: 'projects',
+          element: <About />
+        },
+        {
+          path: 'contact',
+          element: <About />
+        },
       ],
       
       errorElement: <ErrorBoundary />
