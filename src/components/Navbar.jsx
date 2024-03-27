@@ -15,18 +15,18 @@ const Navbar = () => {
     }
     return (
         <nav className={`${styles.navbar}`}>
-            <Link className={`${styles.logo}`} to="/">
-                <h2>Colter Levi Longshore</h2>
+            <Link to="/">
+                <img src="src/assets/colterlevi.png" className={`${styles.logo}`} />
             </Link>
             <ul className={`${styles.navMenu} ${isActive ? styles.active : ''}`}>
                 <li>
                     <Link to="/about">About</Link>
                 </li>
                 <li>
-                    <Link to="/projects">About</Link>
+                    <Link to="/projects">Projects</Link>
                 </li>
                 <li>
-                    <Link to="/contact">About</Link>
+                    <Link to="/contact">Contact</Link>
                 </li>
                 {/* Add more navigation links as needed */}
             </ul>

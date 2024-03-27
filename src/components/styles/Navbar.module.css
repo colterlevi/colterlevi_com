@@ -28,8 +28,10 @@ a {
 
 /* logo  */
 .logo {
-    font-size: 30px;
-    font-family: Arial, Helvetica, sans-serif;
+    height: 6em;
+    padding: 1.5em;
+    will-change: filter;
+    transition: filter 300ms;
 }
 
 
