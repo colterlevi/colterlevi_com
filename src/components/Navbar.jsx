@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import styles from './styles/Navbar.module.css';
 
 const Navbar = () => {
     // adding the states 
@@ -13,11 +14,11 @@ const Navbar = () => {
         setIsActive(false)
     }
     return (
-        <nav className="">
-            <ul className="">
-                <li>
-                    <Link to="/">Home</Link>
-                </li>
+        <nav className={`${styles.navbar}`}>
+            <Link className={`${styles.logo}`} to="/">
+                <h2>Colter Levi Longshore</h2>
+            </Link>
+            <ul className={`${styles.navMenu} ${isActive ? styles.active : ''}`}>
                 <li>
                     <Link to="/about">About</Link>
                 </li>
