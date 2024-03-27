@@ -13,24 +13,34 @@ const Navbar = () => {
     const removeActive = () => {
         setIsActive(false)
     }
+    console.log(isActive)
     return (
+        <div className="App">
+            <header className="App-header">
         <nav className={`${styles.navbar}`}>
             <Link to="/">
                 <img src="src/assets/colterlevi.png" className={`${styles.logo}`} />
             </Link>
             <ul className={`${styles.navMenu} ${isActive ? styles.active : ''}`}>
-                <li>
-                    <Link to="/about">About</Link>
+                <li onClick={removeActive}>
+                    <Link className={`${styles.navLink}`} to="/about">About</Link>
                 </li>
-                <li>
-                    <Link to="/projects">Projects</Link>
+                <li onClick={removeActive}>
+                    <Link className={`${styles.navLink}`} to="/projects">Projects</Link>
                 </li>
-                <li>
-                    <Link to="/contact">Contact</Link>
+                <li onClick={removeActive}>
+                    <Link className={`${styles.navLink}`} to="/contact">Contact</Link>
                 </li>
                 {/* Add more navigation links as needed */}
             </ul>
+                    <div className={`${styles.hamburger} ${isActive ? styles.active : ''}`} onClick={toggleActiveClass}>
+                        <span className={`${styles.bar}`}></span>
+                        <span className={`${styles.bar}`}></span>
+                        <span className={`${styles.bar}`}></span>
+                    </div>
         </nav>
+        </header>
+        </div>
     );
 }
 

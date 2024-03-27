@@ -8,15 +8,18 @@ ul {
     list-style: none;
 }
 
-a {
+.navLink {
     text-decoration: none;
-    color: black;
+    color: #DCD7DE;
     font-size: 18px;
+}
+.navLink:hover {
+    color: #C42134;
 }
 
 /* navbar */
 .navbar {
-    background-color: aliceblue;
+    background-color: #2D3B46;
     padding: 10px 20px;
     display: flex;
     justify-content: space-between;
@@ -54,7 +57,7 @@ a {
     }
 
     .bar {
-        background-color: #120f0b;
+        background-color: #DCD7DE;
         width: 20px;
         height: 3px;
         display: block;
@@ -84,16 +87,16 @@ a {
         flex-direction: column;
         gap: 0;
         top: 70px;
-        left: -100%;
+        right: -100%;
         text-align: start;
         width: 100%;
         transition: 0.7s ease-in-out;
-        background-color: aliceblue;
+        background-color: #2D3B46;
         padding: 10px;
     }
 
     .navMenu.active {
-        left: 0;
+        right: 0;
     }
 
     .navMenu li {
