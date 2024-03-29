@@ -16,23 +16,25 @@ const Navbar = () => {
     console.log(isActive)
     return (
         <div className="App">
-            <header className="App-header">
+            <header className={`${styles.header}`}>
         <nav className={`${styles.navbar}`}>
             <Link to="/">
                 <img src="src/assets/colterlevi.png" className={`${styles.logo}`} />
             </Link>
-            <ul className={`${styles.navMenu} ${isActive ? styles.active : ''}`}>
-                <li onClick={removeActive}>
-                    <Link className={`${styles.navLink}`} to="/about">About</Link>
-                </li>
-                <li onClick={removeActive}>
-                    <Link className={`${styles.navLink}`} to="/projects">Projects</Link>
-                </li>
-                <li onClick={removeActive}>
-                    <Link className={`${styles.navLink}`} to="/contact">Contact</Link>
-                </li>
-                {/* Add more navigation links as needed */}
-            </ul>
+            <div className={`${styles.mainMenu}`}>    
+                <ul className={`${styles.navMenu} ${isActive ? styles.active : ''}`}>
+                    <li onClick={removeActive}>
+                        <Link className={`${styles.navLink}`} to="/about">About</Link>
+                    </li>
+                    <li onClick={removeActive}>
+                        <Link className={`${styles.navLink}`} to="/projects">Projects</Link>
+                    </li>
+                    <li onClick={removeActive}>
+                        <Link className={`${styles.navLink}`} to="/contact">Contact</Link>
+                    </li>
+                    {/* Add more navigation links as needed */}
+                </ul>
+            </div>
                     <div className={`${styles.hamburger} ${isActive ? styles.active : ''}`} onClick={toggleActiveClass}>
                         <span className={`${styles.bar}`}></span>
                         <span className={`${styles.bar}`}></span>

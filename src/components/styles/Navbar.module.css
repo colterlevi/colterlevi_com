@@ -8,6 +8,18 @@ ul {
     list-style: none;
 }
 
+.header {
+    background-color: #2D3B46;
+    padding: 10px 20px;
+    display: flex;
+    gap: 40px;
+    min-height: 70px;
+}
+
+.mainMenu {
+    justify-content: flex-end;
+}
+
 .navLink {
     text-decoration: none;
     color: #DCD7DE;
@@ -19,11 +31,9 @@ ul {
 
 /* navbar */
 .navbar {
-    background-color: #2D3B46;
+    align-items: center;
     padding: 10px 20px;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
     gap: 40px;
     min-height: 70px;
 }
@@ -35,6 +45,7 @@ ul {
     padding: 1.5em;
     will-change: filter;
     transition: filter 300ms;
+    justify-content: flex-start;
 }
 
 
