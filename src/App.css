@@ -48,6 +48,14 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+h1 {
+  text-align: center;
+}
+
+.main-card {
+  margin: 1rem;
+}
+
 .card {
   min-width: fit-content;
   text-align: center;

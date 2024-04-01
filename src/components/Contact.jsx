@@ -8,7 +8,7 @@ const Contact = () => {
             <h1>Contact Colter</h1>
             <motion.div
                 animate={{ x: 500 }}
-                transition={{ delay: 1 }}
+                transition={{ delay: 0.5 }}
             >
                 <p>
                     call email or text!
