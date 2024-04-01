@@ -1,17 +1,19 @@
 import { useState } from 'react'
-
+import { motion } from 'framer-motion'
 
 const Contact = () => {
-    const [count, setCount] = useState(0)
 
     return (
         <>
             <h1>Contact Colter</h1>
-            <div className="card">
+            <motion.div
+                animate={{ x: 500 }}
+                transition={{ delay: 1 }}
+            >
                 <p>
                     call email or text!
                 </p>
-            </div>
+            </motion.div>
         </>
     )
 }
