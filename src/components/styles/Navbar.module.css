@@ -19,7 +19,9 @@ ul {
 }
 
 .mainMenu {
-    justify-content: flex-end;
+    position: absolute;
+    right: 0;
+    padding: 3rem ;
 }
 
 .navLink {
@@ -47,15 +49,13 @@ ul {
     padding: 1.5em;
     will-change: filter;
     transition: filter 300ms;
-    justify-content: flex-start;
+    /* justify-content: flex-start; */
 }
 
 
 /* ul  */
 .navMenu {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
     gap: 60px;
 }
 
@@ -65,6 +65,9 @@ ul {
 
     /* hamburger */
     .hamburger {
+        position: absolute;
+        right: 0;
+        padding-right: 1rem;
         display: block;
         cursor: pointer;
     }
