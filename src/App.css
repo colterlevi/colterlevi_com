@@ -82,8 +82,7 @@ h1 {
 
 .subcard {
   max-width: 1000px;
-  text-align: left;
-  background-color: #586F7C;
+  text-align: left; 
   border: solid 0.25rem;
   border-color: black;
   border-radius: 0.25rem;
