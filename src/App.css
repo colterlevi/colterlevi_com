@@ -1,3 +1,7 @@
+body {
+  background-color: #F4F4F9;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -38,19 +42,19 @@
 
 button {
   border-radius: 8px;
-  border: 1px solid transparent;
+  border: 1px solid black;
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #DCD7DE;
+  background-color: #F4F4F9;
   cursor: pointer;
   transition: border-color 0.25s;
 }
 
 button:hover {
-  border-color: #590209;
-  background-color: #2D3B46;
+  background-color: #B8DBD9;
+  border-color: #586F7C;
 }
 
 button:focus,
@@ -63,7 +67,6 @@ h1 {
 }
 
 .main-card {
-  font-family: plantagenet;
   margin: 1rem;
 }
 
@@ -80,7 +83,7 @@ h1 {
 .subcard {
   max-width: 1000px;
   text-align: left;
-  background-color: #2D3B46;
+  background-color: #586F7C;
   border: solid 0.25rem;
   border-color: black;
   border-radius: 0.25rem;

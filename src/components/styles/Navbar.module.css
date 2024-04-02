@@ -9,6 +9,7 @@ ul {
 }
 
 .header {
+    text-align: right;
     font-family: tengwar;
     background-color: #2D3B46;
     padding: 10px 20px;
@@ -23,7 +24,7 @@ ul {
 
 .navLink {
     text-decoration: none;
-    color: #DCD7DE;
+    color: #F4F4F9;
     font-size: 18px;
 }
 .navLink:hover {
