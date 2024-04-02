@@ -9,6 +9,7 @@ ul {
 }
 
 .header {
+    font-family: tengwar;
     background-color: #2D3B46;
     padding: 10px 20px;
     display: flex;
