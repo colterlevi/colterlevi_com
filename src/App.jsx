@@ -8,6 +8,7 @@ import Home from './pages/Home'
 import About from './components/About'
 import Projects from './components/Projects'
 import Contact from './components/Contact'
+import Experience from './components/Experience';
 
 const App = () => {
 
@@ -35,6 +36,10 @@ const App = () => {
           path: 'contact',
           element: <Contact />
         },
+        {
+          path: 'experience',
+          element: <Experience />
+        }
       ],
       
       errorElement: <ErrorBoundary />
