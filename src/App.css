@@ -59,10 +59,29 @@ h1 {
   border-color: black;
   border-radius: 0.25rem;
   padding: 0.25rem;
-  overflow: hidden;
 }
 
 .aboutbtn {
   margin-top: 0.75rem;
   padding: 0.5rem
+}
+
+.experience-entry {
+  border: 1px dotted black;
+  margin: .875rem;
+  padding: .5rem;
+}
+
+.experience-entry h3 {
+  text-decoration: underline;
+}
+
+.experience-entry ul {
+  padding-left: 1rem;
+  list-style-type: circle;
+  text-indent: 1rem;
+}
+
+.experience-entry a {
+  color: black;
 }

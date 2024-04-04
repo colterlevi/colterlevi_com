@@ -4,10 +4,10 @@ const About = () => {
 
     return (
         <motion.div
-            className="card"
-            initial={{ opacity: 0, scale: 0.5 }}
+         className="card"
+            initial={{ opacity: 0, scale: .95 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1 }}
+            transition={{ duration: .75 }}
         >
             <div>
                 <h1>About Colter</h1>

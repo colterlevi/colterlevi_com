@@ -8,9 +8,9 @@ const Projects = () => {
     return (
         <motion.div
             className="card"
-            initial={{ opacity: 0, scale: 0.5 }}
+            initial={{ opacity: 0, scale: .95 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1 }}
+            transition={{ duration: .75 }}
         >
             <h1>Colter's Projects</h1>
             <div className="subcard">
