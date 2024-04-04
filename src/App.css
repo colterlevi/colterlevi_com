@@ -59,6 +59,7 @@ h1 {
   border-color: black;
   border-radius: 0.25rem;
   padding: 0.25rem;
+  overflow: hidden;
 }
 
 .aboutbtn {
