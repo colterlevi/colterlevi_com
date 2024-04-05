@@ -21,13 +21,13 @@ const Contact = () => {
     ];
 
     return (
-        <div>
+        <div className='card'>
             <h2>Contact Information</h2>
             <motion.div
                 initial="offscreen"
                 whileInView="onscreen"
                 viewport={{ once: true, amount: 0.5 }}
-                className="contact-gallery"
+                className="subcard"
             >
                 {contacts.map((contact) => (
                     <motion.div key={contact.id} variants={cardVariants} className="contact-card">
