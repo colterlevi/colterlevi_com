@@ -13,7 +13,7 @@ const Navbar = () => {
     const removeActive = () => {
         setIsActive(false)
     }
-    console.log(isActive)
+    
     return (
         <div className="App">
             <header className={`${styles.header}`}>

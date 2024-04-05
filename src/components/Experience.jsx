@@ -1,73 +1,157 @@
-import { motion } from "framer-motion"
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Experience = () => {
-
     const itemVariants = {
         hidden: { opacity: 0, y: 20 },
-        visible: { opacity: 1, y: 0, transition: { duration: 3 } }
+        visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
     };
 
+    const [selectedExperience, setSelectedExperience] = useState({});
+    const [isModalVisible, setIsModalVisible] = useState(false);
+
+    const Modal = ({ isVisible, title, content, onClose }) => {
+        return (
+            <AnimatePresence>
+                {isVisible && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="modal-backdrop"
+                    >
+                        <motion.div className="modal-content"
+                            initial={{ y: 50, opacity: 0 }}
+                            animate={{ y: 0, opacity: 1 }}
+                            exit={{ y: 50, opacity: 0 }}
+                        >
+                            <button onClick={onClose}>Close</button>
+                            <h3>{title}</h3>
+                            {content}
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+        );
+    };
+    
+    const handleCardClick = (exp) => {
+        setSelectedExperience(exp);
+        setIsModalVisible(true);
+    };
+
+    const closeModal = () => {
+        setIsModalVisible(false);
+    };
+
+    const timelineYears = Array.from({ length: 11 }, (_, i) => 2024 - i); // Generates years in descending order
+
+    const experiences = [
+        {
+            title: 'Snappy Kraken',
+            link: 'https://getconvos.com/',
+            location: 'New York, NY',
+            startDate: '2023',
+            endDate: '2023',
+            role: 'Software Engineer - Convos - Contract',
+            details: [
+                'Designed, developed, and tested new features for Convos\' web application using React.ts, Ruby on Rails, and GraphQL.',
+                'Resolved bugs and collaborated with the design team on UI features.',
+                'Contributed to code reviews and team communication enhancements.'
+            ]
+        },
+        {
+            title: 'Freelance Audio/Video Producer',
+            link: 'https://colterlevi.com/',
+            location: 'New York, NY',
+            startDate: '2017',
+            endDate: '2022',
+            details: [
+                'The Conference Forum - Collaborated with the Executive Director and Senior Marketing Manager to create video, photo, motion graphics, and audio assets for high level Pharma and biotech conferences.',
+                'Blinkist - Consulted with the Head of Content Development on a new creative audio storytelling format.',
+                'Food & Wine - Worked under Executive Director of Video Programming producing 3 installments of the "Hungry Yet" YouTube series.'
+            ]
+        },
+        {
+            title: 'Iron Tribe Fitness',
+            link: 'https://irontribefitness.com/',
+            location: 'Birmingham, AL',
+            role: 'Videographer and Media Specialist',
+            startDate: '2015',
+            endDate: '2017',
+            details: [
+                'Orchestrated the 2016 Athlete of the Year campaign with the VP of Marketing.',
+                'Conducted monthly meetings with the marketing team, president, and CEO to select featured members for each month.',
+                'Arranged travel for self and crew to the chosen candidate\'s location, ingested, and edited the resulting footage for YouTube and social platforms.',
+                'Additionally, handled all video and media creation for the organization.'
+            ]
+        }
+        // Additional experiences as needed
+    ];
+
+    // Reverse the calculation for positioning
+    const getPositionForYear = (year) => {
+        const maxYear = 2024;
+        const yearOffset = maxYear - year;
+        const totalYears = maxYear - 2014;
+        return (yearOffset / totalYears) * 100; // Return as percentage of total width
+    };
+
+    console.log(selectedExperience)
+
     return (
-        <motion.div
-            className="card"
-            initial={{ opacity: 0, scale: .95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: .75 }}
-        >
-            <motion.div
-                className="subcard"
-                initial="hidden"
-                animate="visible"
-                variants={{
-                    visible: { transition: { staggerChildren: 1 } },
-                }}
-            >
-                <motion.div variants={itemVariants} className="experience-entry">
-                    <a href="https://getconvos.com/" target="_blank">
-                    <h3>Snappy Kraken</h3>
-                    </a>
-                    <p>New York, NY | 05/2023 - 12/2023</p>
-                    <h4>Software Engineer - Convos - Contract</h4>
-                    <ul>
-                        <li>Designed, developed, and tested new features and full stack CRUD operations for Convos' web application using React.ts, Ruby on Rails, ActiveStorage, PostgreSQL, and GraphQL.</li>
-                        <li>Resolved bugs and worked with the design team to implement UI features and changes.</li>
-                        <li>Contributed to code reviews, provided and received feedback to enhance code quality and team communication.</li>
-                    </ul>
-                </motion.div>
+        <div className="experience-container">
+            <div className="timeline">
+                {timelineYears.map((year) => (
+                    <div key={year} className="timeline-mark" style={{ left: `${getPositionForYear(year)}%` }}>
+                        <span className="year-label">{year}</span>
+                    </div>
+                ))}
+            </div>
+            {experiences.map((exp) => {
+                const position = getPositionForYear(parseInt(exp.endDate, 10));
+                return (
+                    <motion.div
+                        className="experience-entry"
+                        variants={itemVariants}
+                        initial="hidden"
+                        animate="visible"
+                        style={{ left: `${position}%` }}
+                        key={exp.title}
+                        onClick={() => handleCardClick(exp)}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                    >
+                        {exp.link ? (
+                            <a href={exp.link} target="_blank" rel="noopener noreferrer"><h3>{exp.title}</h3></a>
+                        ) : (
+                            <h3>{exp.title}</h3>
+                        )}
 
-                <motion.div variants={itemVariants} className="experience-entry">
-                    <h3>Freelance Audio/Video Producer</h3>
-                    <p>New York, NY | 02/2017 - 10/2022</p>
-                    <ul>
-                        <li>The Conference Forum - Collaborated with the Executive Director and Senior Marketing Manager to create video, photo, motion graphics, and audio assets for high level Pharma and biotech conferences.</li>
-                        <li>Blinkist - Consulted with the Head of Content Development on a new creative audio storytelling format.</li>
-                        <li>Food & Wine - Worked under Executive Director of Video Programming producing 3 installments of the "Hungry Yet" YouTube series.</li>
-                    </ul>
-                </motion.div>
+                        {selectedExperience && (
+                            <Modal
+                                isVisible={isModalVisible}
+                                title={selectedExperience.title}
+                                content={
+                                    <div>
+                                        <p>{`${selectedExperience.startDate} - ${selectedExperience.endDate}`}</p>
+                                        <h4>{selectedExperience.role}</h4>
+                                        {/* <ul>
+                                            {selectedExperience.details.map((detail, index) => (
+                                                <li key={index}>{detail}</li>
+                                            ))}
+                                        </ul> */}
 
-                <motion.div variants={itemVariants} className="experience-entry">
-                    <a href="https://irontribefitness.com/" target="_blank">
-                    <h3>Iron Tribe Fitness</h3>
-                    </a>
-                    <p>Birmingham, AL | 11/2015 - 02/2017</p>
-                    <h4>Videographer and Media Specialist</h4>
-                    <ul>
-                        <li>Orchestrated the 2016 Athlete of the Year campaign with the VP of Marketing.</li>
-                        <li>Conducted monthly meetings with the marketing team, president, and CEO to select featured members for each month.</li>
-                        <li>Arranged travel for self and crew to the chosen candidate's location, ingested, and edited the resulting footage for YouTube and social platforms.</li>
-                        <li>Additionally, handled all video and media creation for the organization.</li>
-                    </ul>
-                </motion.div>
-            </motion.div>
-        </motion.div>
+                                    </div>
+                                }
+                                onClose={closeModal}
+                            />
+                        )}
+                    </motion.div>
+                );
+            })}
+        </div>
     );
 };
 
 export default Experience;
-
-
-
-
-
-
-
