@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { useNavigate } from "react-router-dom"
+import { useNavigate, Outlet } from "react-router-dom"
 
 const Projects = () => {
     const navigate = useNavigate()
@@ -17,9 +17,10 @@ const Projects = () => {
                 <h2>
                     This button is my project.
                 </h2>
-                <button onClick={() => navigate('/editor')}>
+                <button onClick={() => navigate('editor')}>
                     test editor
                 </button>
+            <Outlet />
             </div>
         </motion.div>
     )

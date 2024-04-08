@@ -31,7 +31,13 @@ const App = () => {
         },
         {
           path: 'projects',
-          element: <Projects />
+          element: <Projects />,
+          children: [
+            {
+              path: 'editor',
+              element: <RichTextEditor />,
+            },
+          ]
         },
         {
           path: 'contact',
@@ -39,16 +45,12 @@ const App = () => {
         },
         {
           path: 'experience',
-          element: <Experience />
+          element: <Experience />,
         }
       ],
       
       errorElement: <ErrorBoundary />
     },
-    {
-      path: '/editor',
-      element: <RichTextEditor />,
-    }
   ]);
 
 
