@@ -18,7 +18,7 @@ const Projects = () => {
                     This button is my project.
                 </h2>
                 <button onClick={() => navigate('editor')}>
-                    test editor
+                    The Colloquial Editor
                 </button>
             <Outlet />
             </div>
