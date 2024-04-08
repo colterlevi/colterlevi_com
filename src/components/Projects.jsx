@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-
+import { useNavigate } from "react-router-dom"
 
 const Projects = () => {
-    const [count, setCount] = useState(0)
+    const navigate = useNavigate()
 
     return (
         <motion.div
@@ -17,8 +17,8 @@ const Projects = () => {
                 <h2>
                     This button is my project.
                 </h2>
-                <button onClick={() => setCount((count) => count + 1)}>
-                    count is {count}
+                <button onClick={() => navigate('/editor')}>
+                    test editor
                 </button>
             </div>
         </motion.div>
