@@ -33,6 +33,9 @@ const Navbar = () => {
                         <Link className={`${styles.navLink}`} to="/projects">Projects</Link>
                     </li>
                     <li onClick={removeActive}>
+                        <Link className={`${styles.navLink}`} to="/blog">Blog</Link>
+                    </li>
+                    <li onClick={removeActive}>
                         <Link className={`${styles.navLink}`} to="/contact">Contact</Link>
                     </li>
                     {/* Add more navigation links as needed */}
