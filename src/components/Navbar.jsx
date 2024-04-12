@@ -19,7 +19,7 @@ const Navbar = () => {
             <header className={`${styles.header}`}>
         <nav className={`${styles.navbar}`}>
             <Link to="/">
-                <img src="src/assets/colterlevi.png" className={`${styles.logo}`} />
+                        <img src="src/assets/Colter-Edit-1x1-6-sm.jpg" className={`${styles.logo}`} />
             </Link>
             <div className={`${styles.mainMenu}`}>    
                 <ul className={`${styles.navMenu} ${isActive ? styles.active : ''}`}>

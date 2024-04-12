@@ -42,14 +42,15 @@ ul {
     min-height: 70px;
 }
 
-
-/* logo  */
 .logo {
-    height: 6em;
-    padding: 1.5em;
+    height: 5rem;
+    width: 5rem;
+    border-radius: 50%;
+    margin: 1rem;
+    float: left;
+    shape-outside: circle();
     will-change: filter;
     transition: filter 300ms;
-    /* justify-content: flex-start; */
 }
 
 
