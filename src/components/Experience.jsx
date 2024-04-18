@@ -38,10 +38,12 @@ const Experience = () => {
     const handleCardClick = (exp) => {
         setSelectedExperience(exp);
         setIsModalVisible(true);
+        console.log(exp)
     };
 
     const closeModal = () => {
         setIsModalVisible(false);
+        setSelectedExperience({});
     };
 
     const timelineYears = Array.from({ length: 11 }, (_, i) => 2024 - i); // Generates years in descending order
@@ -122,18 +124,18 @@ const Experience = () => {
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                     >
-                        {exp.link ? (
-                            <a href={exp.link} target="_blank" rel="noopener noreferrer"><h3>{exp.title}</h3></a>
-                        ) : (
                             <h3>{exp.title}</h3>
-                        )}
-
                         {selectedExperience && (
                             <Modal
                                 isVisible={isModalVisible}
                                 title={selectedExperience.title}
                                 content={
                                     <div>
+                                        {exp.link ? (
+                                            <a href={exp.link} target="_blank" rel="noopener noreferrer"><h3>{exp.title}</h3></a>
+                                        ) : (
+                                            <h3>{exp.title}</h3>
+                                        )}
                                         <p>{`${selectedExperience.startDate} - ${selectedExperience.endDate}`}</p>
                                         <h4>{selectedExperience.role}</h4>
                                         {/* <ul>

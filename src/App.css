@@ -70,7 +70,8 @@ h1 {
 
 .experience-container {
   position: relative;
-  margin-top: 3rem;
+  min-height: 300px;
+  margin: 3rem;
 }
 
 .timeline {
