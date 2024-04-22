@@ -5,12 +5,9 @@ import {
   useRouteError
 } from "react-router-dom";
 import Home from './pages/Home'
-import About from './components/About'
-import Projects from './components/Projects'
-import Contact from './components/Contact'
-import Experience from './components/Experience';
 import RichTextEditor from './components/modules/RichTextEditor.jsx'
-import Blog from './components/Blog.jsx';
+import Blog from './pages/Blog.jsx';
+import Resume from './pages/Resume.jsx';
 
 const App = () => {
 
@@ -27,26 +24,14 @@ const App = () => {
       element: <Home />,
       children: [
         {
-          path: 'about',
-          element: <About />
-        },
-        {
-          path: 'projects',
-          element: <Projects />,
+          path: '/',
+          element: <Resume />,
           children: [
             {
               path: 'editor',
               element: <RichTextEditor />,
             },
           ]
-        },
-        {
-          path: 'contact',
-          element: <Contact />
-        },
-        {
-          path: 'experience',
-          element: <Experience />,
         },
         {
           path: 'blog',

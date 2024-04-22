@@ -102,7 +102,7 @@ const Experience = () => {
     console.log(selectedExperience)
 
     return (
-        <div className="experience-container">
+        <div className="experience-container" id="experience">
             <div className="timeline">
                 {timelineYears.map((year) => (
                     <div key={year} className="timeline-mark" style={{ left: `${getPositionForYear(year)}%` }}>

@@ -27,7 +27,7 @@ const Navbar = () => {
                         <Link className={`${styles.navLink}`} to="/about">About</Link>
                     </li>
                     <li onClick={removeActive}>
-                        <Link className={`${styles.navLink}`} to="/experience">Experience</Link>
+                        <Link className={`${styles.navLink}`} to="#experience">Experience</Link>
                     </li>
                     <li onClick={removeActive}>
                         <Link className={`${styles.navLink}`} to="/projects">Projects</Link>
