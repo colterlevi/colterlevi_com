@@ -70,107 +70,46 @@ h1 {
 
 .experience-container {
   position: relative;
-  min-height: 300px;
-  margin: 3rem;
+  width: 100%;
+  height: 1000px;
+  margin-top: 3rem;
+  margin-bottom: 5rem;
 }
 
 .timeline {
   position: relative;
-  /* width: 100%; */
-  height: 2px;
+  width: 2px;
   background-color: #333;
-  margin-bottom: 20px;
-  /* Adds space below the timeline for the entries */
+  height: 100%;
+  /* Extend the timeline for the full duration */
+  margin: 0 auto;
+  /* Center it in the container */
 }
 
 .timeline-mark {
   position: absolute;
-  top: 0;
-  /* Align marks to the top of the timeline */
-  height: 20px;
-  /* Height of the mark, extending upwards or downwards */
-  width: 1px;
-  /* Width of the mark */
-  background-color: #333;
-}
-
-.year-label {
-  position: absolute;
-  bottom: 100%;
-  /* Places year labels below the timeline */
-  left: 50%;
-  /* Center align the label with the mark */
-  transform: translateX(-50%);
-  margin-bottom: 5px;
-  /* Adjust based on your design for spacing between marks and labels */
+  left: -30px;
+  /* Adjust based on your design */
+  transform: translateY(-50%);
+  /* Center each mark on its year */
   font-size: 12px;
-}
-
-.modal-backdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-}
-
-.modal-content {
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  max-width: 500px;
-  z-index: 1001;
-}
-
-.experience-card {
-  cursor: pointer;
-  margin: 10px 0;
-  padding: 10px;
-  background-color: #f0f0f0;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: transform 0.1s ease;
+  /* Year label font size */
 }
 
 .experience-entry {
   position: absolute;
-  top: 30px;
-  /* Adjust based on your layout, ensures entries appear below the timeline */
-  width: 200px;
-  /* Adjust as needed */
-  transform: translateX(-50%);
-  /* Centers the content based on the timeline mark */
-  padding: 10px;
-  /* Optional padding for styling */
-  box-sizing: border-box;
-  /* Ensures padding doesn't add to the width */
-  background: #f0f0f0;
-  /* Optional background for visibility */
-  border-radius: 4px;
-  /* Optional border radius for styling */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  /* Optional shadow for depth */
+  width: 45%;
+  /* Adjust based on your design */
 }
 
-/* Add additional styling here for typography, responsiveness, etc. */
-.experience-entry h3 {
-  text-decoration: underline;
+.left {
+  left: 0;
+  /* Position on the left side */
 }
 
-.experience-entry ul {
-  padding-left: 1rem;
-  list-style-type: circle;
-  text-indent: 1rem;
-}
-
-.experience-entry a {
-  color: black;
+.right {
+  right: 0;
+  /* Position on the right side */
 }
 
 button.toolbar {
@@ -193,4 +132,29 @@ button.is-active {
   border-radius: 8px;
   background-color: #919CAD;
 
+}
+
+@media (max-width: 768px) {
+  .experience-entry {
+    width: 100%;
+    /* Make entries full-width */
+    left: auto;
+    /* Remove side positioning */
+    left: 0;
+    /* Position all entries on the right */
+    margin-top: 5px;
+    margin-bottom: 5px;
+    /* Adds space between entries */
+    height: fit-content;
+  }
+
+.timeline {
+  display: none;
+}
+.left,
+.right {
+  /* Remove side-specific styles */
+  left: auto;
+  right: auto;
+}
 }

@@ -3,59 +3,20 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const Experience = () => {
     const itemVariants = {
-        hidden: { opacity: 0, y: 20 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+        hidden: { opacity: 0, x: -50 },
+        visible: { opacity: 1, x: 0, transition: { duration: 0.5 } }
     };
 
-    const [selectedExperience, setSelectedExperience] = useState({});
-    const [isModalVisible, setIsModalVisible] = useState(false);
-
-    const Modal = ({ isVisible, title, content, onClose }) => {
-        return (
-            <AnimatePresence>
-                {isVisible && (
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        className="modal-backdrop"
-                    >
-                        <motion.div className="modal-content"
-                            initial={{ y: 50, opacity: 0 }}
-                            animate={{ y: 0, opacity: 1 }}
-                            exit={{ y: 50, opacity: 0 }}
-                        >
-                            <button onClick={onClose}>Close</button>
-                            <h3>{title}</h3>
-                            {content}
-                        </motion.div>
-                    </motion.div>
-                )}
-            </AnimatePresence>
-        );
-    };
-    
-    const handleCardClick = (exp) => {
-        setSelectedExperience(exp);
-        setIsModalVisible(true);
-        console.log(exp)
-    };
-
-    const closeModal = () => {
-        setIsModalVisible(false);
-        setSelectedExperience({});
-    };
-
-    const timelineYears = Array.from({ length: 11 }, (_, i) => 2024 - i); // Generates years in descending order
+    const timelineYears = Array.from({ length: 17 }, (_, i) => 2024 - i); // [2024, 2023, ..., 2008]
 
     const experiences = [
         {
             title: 'Snappy Kraken',
+            role: 'Software Engineer - Convos - Contract',
             link: 'https://getconvos.com/',
             location: 'New York, NY',
             startDate: '2023',
             endDate: '2023',
-            role: 'Software Engineer - Convos - Contract',
             details: [
                 'Designed, developed, and tested new features for Convos\' web application using React.ts, Ruby on Rails, and GraphQL.',
                 'Resolved bugs and collaborated with the design team on UI features.',
@@ -64,94 +25,95 @@ const Experience = () => {
         },
         {
             title: 'Freelance Audio/Video Producer',
-            link: 'https://colterlevi.com/',
             location: 'New York, NY',
             startDate: '2017',
             endDate: '2022',
             details: [
                 'The Conference Forum - Collaborated with the Executive Director and Senior Marketing Manager to create video, photo, motion graphics, and audio assets for high level Pharma and biotech conferences.',
                 'Blinkist - Consulted with the Head of Content Development on a new creative audio storytelling format.',
-                'Food & Wine - Worked under Executive Director of Video Programming producing 3 installments of the "Hungry Yet" YouTube series.'
+                'Food & Wine - Worked under the Executive Director of Video Programming, producing 3 installments of the "Hungry Yet" YouTube series.'
             ]
         },
         {
             title: 'Iron Tribe Fitness',
+            role: 'Videographer and Media Specialist',
             link: 'https://irontribefitness.com/',
             location: 'Birmingham, AL',
-            role: 'Videographer and Media Specialist',
             startDate: '2015',
             endDate: '2017',
             details: [
                 'Orchestrated the 2016 Athlete of the Year campaign with the VP of Marketing.',
                 'Conducted monthly meetings with the marketing team, president, and CEO to select featured members for each month.',
                 'Arranged travel for self and crew to the chosen candidate\'s location, ingested, and edited the resulting footage for YouTube and social platforms.',
-                'Additionally, handled all video and media creation for the organization.'
+                'Handled all video and media creation for the organization.'
+            ]
+        },
+        {
+            title: 'The University of Alabama',
+            role: 'Telecommunication & Film, BS; Histoery, BA',
+            link: 'https://www.ua.edu/',
+            location: 'Tuscaloosa, AL',
+            startDate: '2008',
+            endDate: '2012',
+            details: [
+                'Double majored in film and history wiht a minor in creative writing.'
             ]
         }
-        // Additional experiences as needed
+        // Add more experiences as needed
     ];
 
-    // Reverse the calculation for positioning
     const getPositionForYear = (year) => {
         const maxYear = 2024;
+        const minYear = 2008;
+        const totalYears = maxYear - minYear;
         const yearOffset = maxYear - year;
-        const totalYears = maxYear - 2014;
-        return (yearOffset / totalYears) * 100; // Return as percentage of total width
+        return (yearOffset / totalYears) * 100; // Return as a percentage of total height
     };
 
-    console.log(selectedExperience)
-
     return (
-        <div className="experience-container" id="experience">
+        <div className='card'>
+            <h2>History</h2>
+            <div className='subcard'>
+        <div className="experience-container">
             <div className="timeline">
                 {timelineYears.map((year) => (
-                    <div key={year} className="timeline-mark" style={{ left: `${getPositionForYear(year)}%` }}>
-                        <span className="year-label">{year}</span>
+                    <div key={year} className="timeline-mark" style={{ top: `${getPositionForYear(year)}%` }}>
+                        {year}
                     </div>
                 ))}
             </div>
-            {experiences.map((exp) => {
-                const position = getPositionForYear(parseInt(exp.endDate, 10));
+            {experiences.map((exp, index) => {
+                const startY = parseInt(exp.startDate, 10);
+                const endY = parseInt(exp.endDate, 10);
+                const topPosition = getPositionForYear(endY);
+                const bottomPosition = getPositionForYear(startY);
+
                 return (
                     <motion.div
-                        className="experience-entry"
+                        className={`experience-entry ${index % 2 === 0 ? 'left' : 'right'}`}
                         variants={itemVariants}
                         initial="hidden"
                         animate="visible"
-                        style={{ left: `${position}%` }}
+                        style={{ top: `${topPosition}%`, height: `${bottomPosition - topPosition}%` }}
                         key={exp.title}
-                        onClick={() => handleCardClick(exp)}
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
                     >
+                        {exp.link ? (
+                            <a href={exp.link} target="_blank" rel="noopener noreferrer"><h3>{exp.title}</h3></a>
+                        ) : (
                             <h3>{exp.title}</h3>
-                        {selectedExperience && (
-                            <Modal
-                                isVisible={isModalVisible}
-                                title={selectedExperience.title}
-                                content={
-                                    <div>
-                                        {exp.link ? (
-                                            <a href={exp.link} target="_blank" rel="noopener noreferrer"><h3>{exp.title}</h3></a>
-                                        ) : (
-                                            <h3>{exp.title}</h3>
-                                        )}
-                                        <p>{`${selectedExperience.startDate} - ${selectedExperience.endDate}`}</p>
-                                        <h4>{selectedExperience.role}</h4>
-                                        {/* <ul>
-                                            {selectedExperience.details.map((detail, index) => (
-                                                <li key={index}>{detail}</li>
-                                            ))}
-                                        </ul> */}
-
-                                    </div>
-                                }
-                                onClose={closeModal}
-                            />
                         )}
+                        <h4>{exp.role}</h4>
+                        <p>{exp.location} | {exp.startDate} - {exp.endDate}</p>
+                        <ul>
+                            {exp.details.map((detail, index) => (
+                                <li key={index}>{detail}</li>
+                            ))}
+                        </ul>
                     </motion.div>
                 );
             })}
+        </div>
+            </div>
         </div>
     );
 };
