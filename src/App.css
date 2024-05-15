@@ -136,12 +136,9 @@ button.is-active {
 
 @media (max-width: 768px) {
   .experience-entry {
+    display: flex;
+    flex-direction: column;
     width: 100%;
-    /* Make entries full-width */
-    left: auto;
-    /* Remove side positioning */
-    left: 0;
-    /* Position all entries on the right */
     margin-top: 5px;
     margin-bottom: 5px;
     /* Adds space between entries */
