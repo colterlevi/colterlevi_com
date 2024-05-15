@@ -8,6 +8,7 @@ import Home from './pages/Home'
 import RichTextEditor from './components/modules/RichTextEditor.jsx'
 import Blog from './pages/Blog.jsx';
 import Resume from './pages/Resume.jsx';
+import Contact from './components/Contact.jsx';
 
 const App = () => {
 
@@ -34,8 +35,8 @@ const App = () => {
           ]
         },
         {
-          path: 'blog',
-          element: <Blog />,
+          path: 'contact',
+          element: <Contact />,
         },
       ],
       

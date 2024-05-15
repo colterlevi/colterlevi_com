@@ -24,17 +24,17 @@ const Navbar = () => {
             <div className={`${styles.mainMenu}`}>    
                 <ul className={`${styles.navMenu} ${isActive ? styles.active : ''}`}>
                     <li onClick={removeActive}>
-                        <Link className={`${styles.navLink}`} to="/about">About</Link>
+                        <Link className={`${styles.navLink}`} to="/">About</Link>
                     </li>
-                    <li onClick={removeActive}>
-                        <Link className={`${styles.navLink}`} to="#experience">Experience</Link>
-                    </li>
-                    <li onClick={removeActive}>
+                    {/* <li onClick={removeActive}>
+                        <Link className={`${styles.navLink}`} to="/">Experience</Link>
+                    </li> */}
+                    {/* <li onClick={removeActive}>
                         <Link className={`${styles.navLink}`} to="/projects">Projects</Link>
                     </li>
                     <li onClick={removeActive}>
                         <Link className={`${styles.navLink}`} to="/blog">Blog</Link>
-                    </li>
+                    </li> */}
                     <li onClick={removeActive}>
                         <Link className={`${styles.navLink}`} to="/contact">Contact</Link>
                     </li>

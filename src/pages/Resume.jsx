@@ -10,9 +10,9 @@ const Resume = () => {
     return (
         <div>
             <About />
-            <Projects />
+            {/* <Projects /> */}
             <Experience />
-            <Contact />
+            {/* <Contact /> */}
         </div>
     )
 }
